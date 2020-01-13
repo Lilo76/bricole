@@ -114,13 +114,18 @@ Public Class Form3
     End Sub
     '"tracke"  position du cursor sur panel
     Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
-        Dim x1, x2 As Single
-        x1 = Val(e.Location.X) / 3.9
-        x2 = Val(e.Location.Y) / 3.9
+        Dim x1, x2, x3, x4 As Single
+        x1 = Val((e.Location.X) / 3.9) - 55.38
+        x2 = Val((e.Location.Y) / 3.9) - 56.92
+
+        x3 = Val(e.Location.X) + 200
+        x4 = Val(e.Location.Y)
+
         'Me.Text = "Coords Panel :" & e.Location.X.ToString & " , " & e.Location.Y.ToString
         Me.Text = "Coords Panel :" & x1.ToString & " , " & x2.ToString
+
         'Me.Text = Me.Text & " Coords Grid :" & (e.Location.X - rectGrille.Top - rectGrille.Width / 2).ToString & " , " & (e.Location.Y - rectGrille.Top - rectGrille.Height / 2).ToString
-        Me.Text = Me.Text & " Coords Grid :" & (x1 - rectGrille.Top - rectGrille.Width / 2).ToString & " , " & (x2 - rectGrille.Top - rectGrille.Height / 2).ToString
+        Me.Text = Me.Text & " Coords Grid :" & (x3 - (rectGrille.Top) - rectGrille.Width / 2).ToString & " , " & (x4 - (rectGrille.Top) - rectGrille.Height / 2).ToString
     End Sub
 
     Public Sub DrawLinePointF(ByVal e As PaintEventArgs)
@@ -142,11 +147,15 @@ Public Class Form3
         Dim blackPen As New Pen(Color.Black, 3)
 
         ' Create coordinates of points that define line.
-        Dim x1 As Integer = 100
-        Dim y1 As Integer = 100
-        Dim x2 As Integer = 500
-        Dim y2 As Integer = 100
-
+        '  Dim x1 As Integer = 100
+        '  Dim y1 As Integer = 100
+        ' Dim x2 As Integer = 500
+        '  Dim y2 As Integer = 100
+        'x1 = Val(
+        Dim x1 As Integer = Val(txt_debut.Text)
+        Dim y1 As Integer = Val(txt_longueur.Text)
+        Dim x2 As Integer = Val(txt_hauteurPt2.Text)
+        Dim y2 As Integer = Val(txt_hauteurPt1.Text)
         ' Draw line to screen.
         e.Graphics.DrawLine(blackPen, x1, y1, x2, y2)
     End Sub
@@ -157,10 +166,10 @@ Public Class Form3
         Dim blackPen As New Pen(Color.Black, 3)
         Dim x1, x2, y1, y2 As Single
 
-        txt_debut.Text = x1
-        txt_hauteurPt2.Text = x2
-        txt_longueur.Text = y1
-        txt_hauteurPt1.Text = y2
+        ' txt_debut.Text = x1
+        ' txt_hauteurPt2.Text = x2
+        ' txt_longueur.Text = y1
+        ' txt_hauteurPt1.Text = y2
         ' Create coordinates of points that define line.
         'Dim x1 As Single = 240.0F
         ' Dim y1 As Single = 234.0F
