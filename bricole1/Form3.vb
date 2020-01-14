@@ -118,14 +118,15 @@ Public Class Form3
         x1 = Val((e.Location.X) / 3.9) - 55.38
         x2 = Val((e.Location.Y) / 3.9) - 56.92
 
-        x3 = Val(e.Location.X) + 200
-        x4 = Val(e.Location.Y)
+        ' x3 = Val(e.Location.X) + 200
+        ' x4 = Val(e.Location.Y)
+
 
         'Me.Text = "Coords Panel :" & e.Location.X.ToString & " , " & e.Location.Y.ToString
         Me.Text = "Coords Panel :" & x1.ToString & " , " & x2.ToString
 
         'Me.Text = Me.Text & " Coords Grid :" & (e.Location.X - rectGrille.Top - rectGrille.Width / 2).ToString & " , " & (e.Location.Y - rectGrille.Top - rectGrille.Height / 2).ToString
-        Me.Text = Me.Text & " Coords Grid :" & (x3 - (rectGrille.Top) - rectGrille.Width / 2).ToString & " , " & (x4 - (rectGrille.Top) - rectGrille.Height / 2).ToString
+        Me.Text = Me.Text & " Coords Grid :" & (e.Location.X - (rectGrille.Height).ToString & " , " & (e.Location.Y - rectGrille.Top).ToString)
     End Sub
 
     Public Sub DrawLinePointF(ByVal e As PaintEventArgs)

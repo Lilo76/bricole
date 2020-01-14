@@ -151,7 +151,7 @@ Public Class Form1
             .BackColor = Color.Navy
             .ForeColor = Color.White
             .Font = New Font(Module1dgv.Font, FontStyle.Bold)
-            .Font = New Font(New FontFamily("Arial"), 7, style)
+            .Font = New Font(New FontFamily("Arial"), 6, style)
             .Alignment = DataGridViewContentAlignment.MiddleCenter
         End With
 
@@ -167,13 +167,7 @@ Public Class Form1
             .RowHeadersVisible = False
 
             ' .Columns(0).Name = "num"
-            ' .Columns(0).Width = 80
-            ' .Columns(1).Name = "mach"
-            ' .Columns(1).Width = 50
-            ' .Columns(2).Name = "pos"
-            ' .Columns(2).Width = 50
-            ' .Columns(3).Name = "part"
-            ' .Columns(3).Width = 50
+
 
             .MultiSelect = False
             .Dock = DockStyle.Top
@@ -431,7 +425,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             ' Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -500,6 +494,24 @@ Public Class Form1
             Next
         Next
         Module1dgv.Sort(Module1dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+        Dim Somme As Integer
+
+
+        For X As Integer = 0 To Module1dgv.Rows.Count - 1
+            Somme += Module1dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M1Cps.Text = Somme
+
+        Module1dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module1dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module1dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module1dgv.Columns(3).Width = 25
+        Module1dgv.Columns(4).Width = 25
+
+        txt_M1tps.Text = Somme / (37500 / 3600)
 
     End Sub
     Private Sub Dgv2()
@@ -518,7 +530,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '   Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -602,7 +614,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             ' Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -687,7 +699,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '  Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -772,7 +784,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '  Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -856,7 +868,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '  Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -941,7 +953,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '  Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -1025,7 +1037,7 @@ Public Class Form1
             obj = Con.CreateCommand()
             '  Try
 
-            strSQL = "SELECT num, mach, pos, part FROM " & nomtable & " "
+            strSQL = "SELECT num, mach, pos, part, qty FROM " & nomtable & " "
 
             Dim Search As New MySqlDataAdapter(strSQL, Con)
             Dim ds As DataSet = New DataSet
@@ -1110,6 +1122,7 @@ Public Class Form1
         Dgv6()
         Dgv7()
         Dgv8()
+
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -1197,7 +1210,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Rafrechir_Click(sender As Object, e As EventArgs) Handles Rafrechir.Click, Panel1.Paint
+    Private Sub Rafrechir_Click(sender As Object, e As EventArgs) Handles Rafrechir.Click
 
     End Sub
 
@@ -1209,4 +1222,7 @@ Public Class Form1
         frm.Show(Form3)
         '  frm1.Show(Form3)
     End Sub
+
+
+
 End Class
