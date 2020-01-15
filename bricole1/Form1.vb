@@ -597,6 +597,34 @@ Public Class Form1
             Next
         Next
         Module2dgv.Sort(Module2dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        For intI = Module2dgv.Rows.Count - 1 To 0 Step -1
+            For intJ = intI - 1 To 0 Step -1
+                If Module2dgv.Rows(intI).Cells(1).Value = Module2dgv.Rows(intJ).Cells(1).Value AndAlso Module2dgv.Rows(intI).Cells(3).Value = Module2dgv.Rows(intJ).Cells(3).Value Then
+                    Module2dgv.Rows.RemoveAt(intI)
+                    Exit For
+                End If
+            Next
+        Next
+        Module2dgv.Sort(Module2dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        Dim Somme As Integer
+        For X As Integer = 0 To Module2dgv.Rows.Count - 1
+            Somme += Module2dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M2Cps.Text = Somme
+
+        Module2dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module2dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module2dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module2dgv.Columns(3).Width = 25
+        Module2dgv.Columns(4).Width = 25
+
+        txt_M2tps.Text = Somme / (26000 / 3600)
+
     End Sub
     Private Sub Dgv3()
 
@@ -681,6 +709,23 @@ Public Class Form1
             Next
         Next
         Module3dgv.Sort(Module3dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        Dim Somme As Integer
+        For X As Integer = 0 To Module3dgv.Rows.Count - 1
+            Somme += Module3dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M3Cps.Text = Somme
+
+        Module3dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module3dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module3dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module3dgv.Columns(3).Width = 25
+        Module3dgv.Columns(4).Width = 25
+
+        txt_M3tps.Text = Somme / (26000 / 3600)
 
     End Sub
     Private Sub Dgv4()
@@ -767,6 +812,24 @@ Public Class Form1
         Next
         Module4dgv.Sort(Module4dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
 
+        Dim Somme As Integer
+        For X As Integer = 0 To Module4dgv.Rows.Count - 1
+            Somme += Module4dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M4Cps.Text = Somme
+
+        Module4dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module4dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module4dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module4dgv.Columns(3).Width = 25
+        Module4dgv.Columns(4).Width = 25
+
+        txt_M4tps.Text = Somme / (26000 / 3600)
+
+
     End Sub
     Private Sub Dgv5()
 
@@ -851,6 +914,24 @@ Public Class Form1
             Next
         Next
         Module5dgv.Sort(Module5dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        Dim Somme As Integer
+        For X As Integer = 0 To Module5dgv.Rows.Count - 1
+            Somme += Module5dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M5Cps.Text = Somme
+
+        Module5dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module5dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module5dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module5dgv.Columns(3).Width = 25
+        Module5dgv.Columns(4).Width = 25
+
+        txt_M5tps.Text = Somme / (26000 / 3600)
+
     End Sub
     Private Sub Dgv6()
 
@@ -936,6 +1017,24 @@ Public Class Form1
         Next
         Module6dgv.Sort(Module6dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
 
+        Dim Somme As Integer
+        For X As Integer = 0 To Module6dgv.Rows.Count - 1
+            Somme += Module6dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M6Cps.Text = Somme
+
+        Module6dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module6dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module6dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module6dgv.Columns(3).Width = 25
+        Module6dgv.Columns(4).Width = 25
+
+        txt_M6tps.Text = Somme / (26000 / 3600)
+
+
     End Sub
     Private Sub Dgv7()
 
@@ -1020,6 +1119,24 @@ Public Class Form1
             Next
         Next
         Module7dgv.Sort(Module7dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        Dim Somme As Integer
+        For X As Integer = 0 To Module7dgv.Rows.Count - 1
+            Somme += Module7dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M7Cps.Text = Somme
+
+        Module7dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module7dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module7dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module7dgv.Columns(3).Width = 25
+        Module7dgv.Columns(4).Width = 25
+
+        txt_M7tps.Text = Somme / (6500 / 3600)
+
     End Sub
     Private Sub Dgv8()
 
@@ -1105,6 +1222,24 @@ Public Class Form1
             Next
         Next
         Module8dgv.Sort(Module8dgv.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+        Dim Somme As Integer
+        For X As Integer = 0 To Module8dgv.Rows.Count - 1
+            Somme += Module8dgv.Rows(X).Cells(4).Value
+        Next X
+        txt_M4Cps.Text = Somme
+
+        Module8dgv.Columns(0).Width = 70
+        ' .Columns(1).Name = "mach"
+        Module8dgv.Columns(1).Width = 35
+        ' .Columns(2).Name = "pos"
+        Module8dgv.Columns(2).Width = 25
+        ' .Columns(3).Name = "part"
+        Module8dgv.Columns(3).Width = 25
+        Module8dgv.Columns(4).Width = 25
+
+        txt_M8tps.Text = Somme / (4200 / 3600)
+
 
     End Sub
     Private Sub btn_Import_form2_Click(sender As Object, e As EventArgs) Handles btn_Import_form2.Click
